@@ -1,0 +1,192 @@
+#define	page1
+	<a href="${del_leonorepix}/15.jpg"><img
+		src="${del_leonorepix}/15.gif" border=0
+		alt="Pencil Sketches"
+		width=160 height=200></a>
+
+#define	page2
+	<table border=0 width=50%><tr><td>
+	<a href="${del_leonorepix}/5.jpg"><img
+		src="${del_leonorepix}/5.gif" border=0
+		alt="Pink Dress"
+		width=61 height=200></a>
+	</td>
+	<td>
+	<a href="${del_leonorepix}/12.jpg"><img
+		src="${del_leonorepix}/12.gif" border=0
+		alt="Blue Dress Dummy"
+		width=68 height=200></a>
+	</td></tr></table>
+
+#define	page3
+	<a href="${del_leonorepix}/9.jpg"><img
+		src="${del_leonorepix}/9.gif" border=0
+		alt="Green Bell Dress"
+		width=91 height=200></a>
+	&nbsp;&nbsp;&nbsp;
+	<a href="${del_leonorepix}/20.jpg"><img
+		src="${del_leonorepix}/20.gif" border=0
+		alt="Frills"
+		width=140 height=200></a>
+	&nbsp;&nbsp;&nbsp;
+	<a href="${del_leonorepix}/11.jpg"><img
+		src="${del_leonorepix}/11.gif" border=0
+		alt="Flapper"
+		width=90 height=200></a>
+	
+#define	page4
+	<table border=0>
+	<tr>
+	<td valign=top align=center>
+	<a href="${del_leonorepix}/1.jpg"><img
+		src="${del_leonorepix}/1.gif" border=1
+		alt="Sport Costume With Wrong Accessories"
+		width=142 height=300></a>
+	<br>
+	<font size="-1">&quot;Sport Costume With Wrong Accessories&quot;</font>
+	</td>
+	<td>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	</td>
+	<td valign=top align=center>
+	<a href="${del_leonorepix}/2.jpg"><img
+		src="${del_leonorepix}/2.gif" border=1
+		alt="Correct Sport Costume"
+		width=144 height=300></a>
+	<br>
+	<font size="-1">&quot;Correct Sport Costume&quot;</font>
+	</td>
+	</tr>
+	</table>
+
+#define	page5
+	<a href="${del_leonorepix}/18.jpg"><img
+		src="${del_leonorepix}/18.gif" border=0
+		alt="Evening Gown"
+		width=136 height=200></a>
+	&nbsp;&nbsp;&nbsp;
+	<a href="${del_leonorepix}/14.jpg"><img
+		src="${del_leonorepix}/14.gif" border=0
+		alt="Three Hairstyles"
+		width=63 height=200></a>
+	&nbsp;&nbsp;&nbsp;
+	<a href="${del_leonorepix}/10.jpg"><img
+		src="${del_leonorepix}/10.gif" border=0
+		alt="Albanian Woman"
+		width=124 height=200></a>
+
+#define	page6
+	<a href="${del_leonorepix}/16.jpg"><img
+		src="${del_leonorepix}/16.gif" border=0
+		alt="Brown Hair"
+		width=120 height=200></a>
+	&nbsp;&nbsp;&nbsp;
+	<a href="${del_leonorepix}/17.jpg"><img
+		src="${del_leonorepix}/17.gif" border=0
+		alt="Brown Hair"
+		width=99 height=200></a>
+	&nbsp;&nbsp;&nbsp;
+	<a href="${del_leonorepix}/13.jpg"><img
+		src="${del_leonorepix}/13.gif" border=0
+		alt="Three Hats"
+		width=200 height=85></a>
+
+#define	page7
+	<a href="${del_leonorepix}/19.jpg"><img
+		src="${del_leonorepix}/19.gif" border=0
+		alt="Ornamentals"
+		width=156 height=200></a>
+
+#define	page8
+	<a href="${del_leonorepix}/6.jpg"><img
+		src="${del_leonorepix}/6.gif" border=0
+		alt="Blue Abstract"
+		width=200 height=107></a>
+	<br>
+	<a href="${del_leonorepix}/8.jpg"><img
+		src="${del_leonorepix}/8.gif" border=0
+		alt="Orange Abstract"
+		width=200 height=116></a>
+	<br>
+	<a href="${del_leonorepix}/7.jpg"><img
+		src="${del_leonorepix}/7.gif" border=0
+		alt="Brown Abstract"
+		width=200 height=106></a>
+
+#define	page9
+	<a href="${del_leonorepix}/4.jpg"><img
+		src="${del_leonorepix}/4.gif" border=0
+		alt="Lady"
+		width=206 height=300></a>
+
+#define	page10
+	<a href="${del_leonorepix}/3.jpg"><img
+		src="${del_leonorepix}/3.gif" border=0
+		alt="Line Drawing"
+		width=143 height=200></a>
+
+#define	page11
+	<div align=left>
+	<table border=0>
+	<tr>
+	<td>
+	<a href="${del_galpix}/leonore.jpg"><img
+		src="${del_leonorepix}/leonore.jpg" border=0
+		alt="Leonore Welsh"
+		width=283 height=193></a>
+	</td>
+	<td>
+	Leonore Welsh
+	<br><font color="#3366ff">my grandmother</font>
+	<br><i>1902-1994</i>
+	</td>
+	<td>
+	<img src="${del_leonorepix}/leonore_flowers.jpg" 
+		width=200 height=310 border=0>
+	</td>
+	</tr>
+	</table>
+	</div>
+	
+#define	maxPage	11
+
+#define	which
+#live	if (getval(which))
+	${which}
+#live	else
+	1
+#live	endif
+
+#define	theNav
+#live	if (getnum(which) > 1)
+	<a href="${del_leonore}?${encrypt(which=${eval(${which} - 1)})}">[prev]</a>&nbsp;
+#live	endif
+#live	while (n = page*)
+#live	if (getnum(which) = ${n})
+	<b>${n}</b>
+#live	else
+	<a href="${del_leonore}?${encrypt(which=${eval(${n})})}">${n}</a>
+#live	endif
+#live	if (getnum(n) != ${maxPage})
+		|
+#live	endif
+#live	endwhile
+#live	if (getnum(which) < ${maxPage})
+	&nbsp;<a href="${del_leonore}?${encrypt(which=${eval(${which} + 1)})}">[next]</a>
+#live	endif
+
+#define	index.html
+	<head><title>Design Class Sketches by Leonore Smith :
+		page ${which} of ${maxPage}</title></head>
+	<body bgcolor="#ffffff">
+	<div align=center>
+	<font size=4 face=arial color="#3366ff"><b>1924 design class sketches by Leonore Smith</b></font>
+	<hr noshade size=1>
+	<table border=0><tr><td valign=middle align=center>
+	${page${which}}
+	</td></tr></table>
+	<hr noshade size=1>
+	${theNav}
+	</div>
+
+	${footer}
